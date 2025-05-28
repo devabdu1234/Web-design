@@ -1,0 +1,118 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Image */
+body {
+  font-family: Arial, sans-serif;
+  background: url('photo2.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  color: white;
+  overflow: hidden;
+  position: relative; /* To position the button and discount at bottom-left */
+}
+
+/* Top Menu (aligned to the top-right) */
+.top-menu ul {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 20px;
+  list-style-type: none;
+}
+
+.top-menu ul li {
+  margin-left: 20px;
+}
+
+.top-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.top-menu ul li a:hover {
+  color: #ff6347;
+}
+
+/* Content Section (Title aligned to the left side) */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Keep content aligned to the top */
+  align-items: flex-start; /* Align everything to the left side */
+  height: 100vh;
+  width: 100%;
+  padding-left: 30px; /* Keep content away from the left edge */
+  position: relative;
+}
+
+/* Welcome Section */
+.welcome-section {
+  margin-top: 20%; /* This positions the title vertically centered */
+}
+
+.welcome-section h1 {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: fadeInUp 1s forwards;
+}
+
+/* Animation for the title */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Join Now Button (positioned at bottom-left) */
+.join-btn {
+  background-color: black;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  bottom: 90px; /* Position button 90px from the bottom */
+  left: 30px; /* Position button 30px from the left */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.join-btn:hover {
+  background-color: #444; /* Darker black on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+
+/* Discount Section (positioned below the Join Now button) */
+.discount {
+  margin-top: 10px;
+  background-color: rgba(128, 128, 128, 0.7); /* Grey with transparency */
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 30px; /* Position discount 30px from the bottom */
+  left: 30px; /* Position discount 30px from the left */
+}
+
+.discount p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff; /* White text to stand out against grey background */
+}

@@ -1,0 +1,176 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Image */
+body {
+  font-family: Arial, sans-serif;
+  background: url('photo.jpeg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* Top Menu */
+.top-menu ul {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 20px;
+  list-style-type: none;
+}
+
+.top-menu ul li {
+  margin-left: 20px;
+}
+
+.top-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  opacity: 0; /* Initially invisible */
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s; /* Delay for a staggered effect */
+}
+
+.top-menu ul li a:hover {
+  color: #ff6347; /* Hover effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.top-menu ul li:nth-child(1) {
+  animation-delay: 1s; /* Staggering each link animation */
+}
+
+.top-menu ul li:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.top-menu ul li:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+.top-menu ul li:nth-child(4) {
+  animation-delay: 1.6s;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  opacity: 0; /* Initially invisible */
+  animation: slideIn 1.5s forwards;
+  animation-delay: 0.5s; /* Delay before the main content comes in */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%); /* Slide from left */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Welcome Section */
+.welcome-section {
+  max-width: 500px;
+}
+
+.welcome-section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.join-btn {
+  background-color: #ff6347;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+  opacity: 0; /* Initially invisible */
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1.5s;
+}
+
+.join-btn:hover {
+  background-color: #d9534f; /* Hover effect for button */
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+.discount {
+  margin-top: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1.8s; /* Slight delay for the discount to appear */
+}
+
+.discount p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffeb3b; /* Discount text color */
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.discount p:hover {
+  transform: scale(1.1); /* Hover effect to scale up the text */
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Button click animation */
+.join-btn:active {
+  transform: scale(0.98); /* Button press effect */
+  transition: transform 0.1s ease;
+}
