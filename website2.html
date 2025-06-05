@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sidebar & Flex Cards with Titles</title>
+<style>
+  /* Container grid */
+  .container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 60px 1fr 40px;
+    grid-template-columns: minmax(200px, 30%) 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  /* Common box styling */
+  .box {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Header */
+  .header {
+    grid-area: header;
+    background-color: #4a90e2;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  /* Footer */
+  .footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Sidebar container uses flex column */
+  .sidebar {
+    grid-area: sidebar;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  /* Sidebar title */
+  .sidebar-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 10px;
+    user-select: none;
+  }
+
+  /* Sidebar menu is a 2D grid */
+  .sidebar-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(3, 50px);   /* 3 rows */
+    gap: 10px;
+    flex-grow: 1;
+  }
+
+  /* Sidebar menu items */
+  .sidebar-menu > div {
+    background-color: #ddd;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  .sidebar-menu > div:hover {
+    background-color: #4a90e2;
+    color: white;
+  }
+
+  /* Main content area */
+  .main {
+    grid-area: main;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  /* Main title */
+  .main-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 15px;
+    user-select: none;
+  }
+
+  /* Container for flex cards */
+  .cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .cards-container > .card {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .cards-container > .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+
+  /* Responsive for smaller screens */
+  @media (max-width: 800px) {
+    .container {
+      grid-template-columns: 1fr;
+      grid-template-rows: 60px auto 1fr 40px;
+      grid-template-areas:
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+      height: auto;
+    }
+    .sidebar-menu {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 50px);
+    }
+    .main {
+      padding: 10px;
+    }
+    .cards-container {
+      justify-content: center;
+    }
+    .cards-container > .card {
+      flex: 1 1 80%;
+      min-width: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="box header">Header</header>
+
+  <aside class="box sidebar">
+    <div class="sidebar-title">Sidebar</div>
+    <div class="sidebar-menu">
+      <div>Menu 1</div>
+      <div>Menu 2</div>
+      <div>Menu 3</div>
+      <div>Menu 4</div>
+      <div>Menu 5</div>
+      <div>Menu 6</div>
+    </div>
+  </aside>
+
+  <main class="box main">
+    <div class="main-title">Flex Cards</div>
+    <div class="cards-container">
+      <div class="card">Flex Card 1</div>
+      <div class="card">Flex Card 2</div>
+      <div class="card">Flex Card 3</div>
+    </div>
+  </main>
+
+  <footer class="box footer">Footer</footer>
+</div>
+
+</body>
+</html>
